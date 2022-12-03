@@ -30,10 +30,10 @@ let arrayOfRoots = middleLine;
 
 var score = 0;
 var scoreOutOf = 0;
+var wrongWords = 0;
 
 const wordRepeatTimes = 5;
 let arrayOfWords = []
-// let j = 0;
 
 const colorOfWrittenWords = "rgb(148, 148, 144)";
 const colorOfNextWords = "white";
@@ -47,24 +47,9 @@ while (collectionOfRandomNos.length < arrayOfRoots.length){
     randomNumber = Math.floor(Math.random() * middleLine.length);
     if (!collectionOfRandomNos.includes(randomNumber)){
         collectionOfRandomNos.push(randomNumber);
-        console.log(arrayOfRoots[randomNumber]);
     }
 }
-//
-//
-function populate() {
-    // for (let i=0; i<arrayOfRoots.length*wordRepeatTimes; i++){
-    //     if (i%wordRepeatTimes === 0 && i != 0){
-    //         j++
-    //     }
-    //     arrayOfWords.push(arrayOfRoots[j]);
-    // }
-    //
-
-    // for (let i=0; i<arrayOfWords.length; i++){
-    //     text.innerHTML += ("<span id='c"+i+"'> "+arrayOfWords[i]+"</span> ");
-    // }
-    //
+function populateTheScreen() {
     for (let i=0; i<arrayOfRoots.length; i++){
         for (let j=0; j<wordRepeatTimes; j++){
             arrayOfWords.push(arrayOfRoots[collectionOfRandomNos[i]]);
@@ -74,9 +59,9 @@ function populate() {
         text.innerHTML += ("<span id='c"+i+"'> "+arrayOfWords[i]+"</span> ");
     }
 }
-populate();
+populateTheScreen();
 
-
+// For now this function is useless.
 function changeArray() {
     switch (currentSelectedArray.value){
         case "all":
@@ -119,9 +104,7 @@ input.addEventListener("keyup", function() {
             console.log("Yo index is greater")
         }else if (innerText.trim() === arrayOfWords[index].trim()){
             rightWord = true;
-            console.log("right word");
-
-
+            
             if (index+1 < arrayOfWords.length){
                 let newWord = document.getElementById('c'+(index+1).toString());
                 let oldWord = document.getElementById('c'+(index).toString());
@@ -136,20 +119,19 @@ input.addEventListener("keyup", function() {
                 }
                 totalWordsHtml.innerText = scoreOutOf;
                 rightWordsHtml.innerText = score;
-                wrongWordsHtml.innerText = scoreOutOf - score;
+                wrongWordsHtml.innerText = wrongWords;
                 newWord.scrollIntoView();
             }
-            
+            else {
+                wrongWords ++;
+            }
             index++
-        }
-        else {
-            rightWord = false;
-            console.log("wrong word");
         }
 
     }
 });
 
+// there is a check button at bottom right which calls this function
 function checkButtonClick() {
     var checkBtn = document.getElementById("checkForScoreVis");
     if (checkBtn.checked){
