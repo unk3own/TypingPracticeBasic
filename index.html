@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Starter</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+<body>
+    <div id="scoreStuff">
+        <div id="TotalWords">
+            <span id="twText">Total words: </span>
+            <span id="twValue">0</span>
+        </div>
+        <div id="rightWords">
+            <span id="rwText">Right words: </span>
+            <span id="rwValue">0</span>
+        </div>
+        <div class="wrongWords">
+            <span id="wwText">Wrong words: </span>
+            <span id="wwValue">0</span>
+        </div>
+    </div>
+
+    <div class="bothTextInput">
+    <center>
+        <div id="textDiv">
+        </div>
+        <div id="inputDiv">
+            <input type="text" id="mainInput" onchange="changeHandler()">
+        </div>
+    </center>
+    </div>
+
+    <div class="scoreVisibleOrNot">
+        <input type="checkbox" id="checkForScoreVis" onclick="checkButtonClick()">
+        <label for="checkForScoreVis">Set Score Visible</label>
+    </div>
+
+    <div id="arraysOptions" style="display: none;">
+        <label for="arraysOptionMenu">Choose keyboard line:</label>
+        <select id="arraysOptionMenu" onclick="changeArray()" >
+            <option value="all">all</option>
+            <option value="top">top</option>
+            <option value="middle">middle</option>
+            <option value="bottom">bottom</option>
+        </select>
+    </div>
+
+
+
+    <script src="./script.js"></script>
+</body>
+</html>

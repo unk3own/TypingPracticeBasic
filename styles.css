@@ -1,0 +1,67 @@
+body {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+#mainInput {
+    background-color: rgb(121, 120, 120);
+    border: 0;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    width: 45%;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#textDiv {
+    margin-bottom: 50px;
+    width: fit-content;
+    height: 85px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+    width: 60%;
+    text-align: center;
+
+    scrollbar-width: none; /*firefox*/
+    -ms-overflow-style: none; /*Internet Explorer, Edge */
+}
+#textDiv::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+#textDiv span {
+    scroll-margin: 28px;
+}
+.bothTextInput {
+    width: 99%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+}
+
+/* SCORE STUFF */
+
+#scoreStuff {
+    font-size: 1rem;
+    opacity: 0;
+}
+#twText, #twValue {
+    color: rgb(22, 173, 22);
+}
+#rwText, #rwValue {
+    color: rgb(199, 158, 158);
+}
+#wwText, #wwValue {
+    color: rgb(244, 84, 84);
+}
+
+.scoreVisibleOrNot {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
