@@ -104,7 +104,7 @@ input.addEventListener("keyup", function() {
             console.log("Yo index is greater")
         }else if (innerText.trim() === arrayOfWords[index].trim()){
             rightWord = true;
-            
+
             if (index+1 < arrayOfWords.length){
                 let newWord = document.getElementById('c'+(index+1).toString());
                 let oldWord = document.getElementById('c'+(index).toString());
@@ -117,17 +117,16 @@ input.addEventListener("keyup", function() {
                     scoreOutOf++;
                     oldWord.style.color=colorOfWrongWord;              
                 }
-                totalWordsHtml.innerText = scoreOutOf;
-                rightWordsHtml.innerText = score;
-                wrongWordsHtml.innerText = wrongWords;
-                newWord.scrollIntoView();
-            }
-            else {
-                wrongWords ++;
             }
             index++
+        }else if (innerText.trim() !== arrayOfWords[index].trim()) {
+            scoreOutOf++;
+            wrongWords ++;
         }
-
+        totalWordsHtml.innerText = scoreOutOf;
+        rightWordsHtml.innerText = score;
+        wrongWordsHtml.innerText = wrongWords;
+        newWord.scrollIntoView();
     }
 });
 
