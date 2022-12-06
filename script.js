@@ -17,7 +17,7 @@ const wrongWordsHtml = document.getElementById("wwValue");
 const rightWordsHtml = document.getElementById("rwValue");
 const currentSelectedArray = document.getElementById("arraysOptionMenu");
 
-middleLine = ["kal", "sad", "las", "kas", "gas", "jas", "jhk", "fass", "fash", "lash", "has;", "lhk", "glk"];
+middleLine = ["kal", "sad", "las", "kas", "gas", "jas", "jhk", "fall", "fash", "lash", "has;", "lhk", "glk"];
 upperLine = ["ruu", "pow", "power", "riq", "rot", "top", "poq", "yet", "tup"];
 lowerLine = ["mzn", "z.m", "bmc", "zxm", "cbm.", "mnb,", ",zv"]
 allLinesBasic = ["ins", "tin", "bin.", "fin", "sell", "aid", "net", "bet", "wet,", "let", "set", "mill;",
@@ -32,7 +32,7 @@ var score = 0;
 var scoreOutOf = 0;
 var wrongWords = 0;
 
-const wordRepeatTimes = 5;
+const wordRepeatTimes = 20;
 let arrayOfWords = []
 
 const colorOfWrittenWords = "rgb(148, 148, 144)";
@@ -61,31 +61,31 @@ function populateTheScreen() {
 }
 populateTheScreen();
 
-// For now this function is useless.
-function changeArray() {
-    switch (currentSelectedArray.value){
-        case "all":
-            arrayOfRoots = allLinesBasic;
-            populate();
-            console.log("all")
-            break;
-        case "top":
-            arrayOfRoots = upperLine;
-            populate();
-            console.log("top")
-            break;
-        case "middle":
-            arrayOfRoots = middleLine;
-            populate();
-            console.log("middle")
-            break;
-        case "bottom":
-            arrayOfRoots = lowerLine;
-            populate();
-            console.log("bottom")
-            break;
-    }
-}
+// // For now this function is useless.
+// function changeArray() {
+//     switch (currentSelectedArray.value){
+//         case "all":
+//             arrayOfRoots = allLinesBasic;
+//             populate();
+//             console.log("all")
+//             break;
+//         case "top":
+//             arrayOfRoots = upperLine;
+//             populate();
+//             console.log("top")
+//             break;
+//         case "middle":
+//             arrayOfRoots = middleLine;
+//             populate();
+//             console.log("middle")
+//             break;
+//         case "bottom":
+//             arrayOfRoots = lowerLine;
+//             populate();
+//             console.log("bottom")
+//             break;
+//     }
+// }
 
 
 
@@ -108,6 +108,7 @@ input.addEventListener("keyup", function() {
             if (index+1 < arrayOfWords.length){
                 let newWord = document.getElementById('c'+(index+1).toString());
                 let oldWord = document.getElementById('c'+(index).toString());
+                newWord.scrollIntoView();
                 newWord.style.color=colorOfCurrentWord;
                 if (rightWord){
                     score++;
@@ -126,7 +127,6 @@ input.addEventListener("keyup", function() {
         totalWordsHtml.innerText = scoreOutOf;
         rightWordsHtml.innerText = score;
         wrongWordsHtml.innerText = wrongWords;
-        newWord.scrollIntoView();
     }
 });
 
