@@ -32,7 +32,7 @@ var score = 0;
 var scoreOutOf = 0;
 var wrongWords = 0;
 
-const wordRepeatTimes = 20;
+const wordRepeatTimes = 1;
 let arrayOfWords = []
 
 const colorOfWrittenWords = "rgb(148, 148, 144)";
@@ -42,14 +42,19 @@ const colorOfWrongWord = "rgb(100, 100, 58)"
 text.style.color = colorOfNextWords;
 
 
-let collectionOfRandomNos = [];
-while (collectionOfRandomNos.length < arrayOfRoots.length){
-    randomNumber = Math.floor(Math.random() * middleLine.length);
-    if (!collectionOfRandomNos.includes(randomNumber)){
-        collectionOfRandomNos.push(randomNumber);
+
+function populateTheScreen(arrayOfRoots) {
+    let collectionOfRandomNos = [];
+    while (collectionOfRandomNos.length < arrayOfRoots.length){
+        randomNumber = Math.floor(Math.random() * arrayOfRoots.length);
+        if (!collectionOfRandomNos.includes(randomNumber)){
+            collectionOfRandomNos.push(randomNumber);
+        }
     }
-}
-function populateTheScreen() {
+
+    text.innerHTML = "";
+    arrayOfWords = [];
+
     for (let i=0; i<arrayOfRoots.length; i++){
         for (let j=0; j<wordRepeatTimes; j++){
             arrayOfWords.push(arrayOfRoots[collectionOfRandomNos[i]]);
@@ -58,34 +63,35 @@ function populateTheScreen() {
     for (let i=0; i<arrayOfWords.length; i++){
         text.innerHTML += ("<span id='c"+i+"'> "+arrayOfWords[i]+"</span> ");
     }
+    input.focus();
 }
-populateTheScreen();
+populateTheScreen(arrayOfRoots);
 
-// // For now this function is useless.
-// function changeArray() {
-//     switch (currentSelectedArray.value){
-//         case "all":
-//             arrayOfRoots = allLinesBasic;
-//             populate();
-//             console.log("all")
-//             break;
-//         case "top":
-//             arrayOfRoots = upperLine;
-//             populate();
-//             console.log("top")
-//             break;
-//         case "middle":
-//             arrayOfRoots = middleLine;
-//             populate();
-//             console.log("middle")
-//             break;
-//         case "bottom":
-//             arrayOfRoots = lowerLine;
-//             populate();
-//             console.log("bottom")
-//             break;
-//     }
-// }
+// For now this function is useless.
+function changeArray() {
+    switch (currentSelectedArray.value){
+        case "all":
+            arrayOfRoots = allLinesBasic;
+            populateTheScreen(arrayOfRoots);
+            console.log("all lines selected");
+            break;
+        case "top":
+            arrayOfRoots = upperLine;
+            populateTheScreen(arrayOfRoots);
+            console.log("top line selected");
+            break;
+        case "middle":
+            arrayOfRoots = middleLine;
+            populateTheScreen(arrayOfRoots);
+            console.log("middle line selected");
+            break;
+        case "bottom":
+            arrayOfRoots = lowerLine;
+            populateTheScreen(arrayOfRoots);
+            console.log("bottom line selected");
+            break;
+    }
+}
 
 
 
@@ -138,4 +144,6 @@ function checkButtonClick() {
     }else {
         scoreStuff.style.opacity = "0";
     }
+    input.focus();
 }
+input.focus();

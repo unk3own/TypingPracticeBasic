@@ -43,6 +43,14 @@ body {
     transform: translateY(-50%);
     font-size: 1.5rem;
 }
+/* ARRAY CHANGING STUFF */
+
+#arraysOptionMenu {
+    padding: 3px; 
+    color: white;
+    background-color: black;
+    border: 1px blue solid;
+}
 
 /* SCORE STUFF */
 

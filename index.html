@@ -7,7 +7,16 @@
     <title>Typing Starter</title>
     <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
-<body>
+<body>    
+    <div id="arraysOptions">
+        <label for="arraysOptionMenu">Choose a keyboard line:</label>
+        <select id="arraysOptionMenu" onclick="changeArray()" >
+            <option value="middle">middle</option>
+            <option value="all">all</option>
+            <option value="top">top</option>
+            <option value="bottom">bottom</option>
+        </select>
+    </div>
     <div id="scoreStuff">
         <div id="TotalWords">
             <span id="twText">Total tries: </span>
@@ -37,18 +46,6 @@
         <input type="checkbox" id="checkForScoreVis" onclick="checkButtonClick()">
         <label for="checkForScoreVis">Set Score Visible</label>
     </div>
-
-    <div id="arraysOptions" style="display: none;">
-        <label for="arraysOptionMenu">Choose keyboard line:</label>
-        <select id="arraysOptionMenu" onclick="changeArray()" >
-            <option value="all">all</option>
-            <option value="top">top</option>
-            <option value="middle">middle</option>
-            <option value="bottom">bottom</option>
-        </select>
-    </div>
-
-
 
     <script src="./script.js"></script>
 </body>
