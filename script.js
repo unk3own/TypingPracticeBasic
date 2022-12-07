@@ -16,6 +16,8 @@ const totalWordsHtml = document.getElementById("twValue");
 const wrongWordsHtml = document.getElementById("wwValue");
 const rightWordsHtml = document.getElementById("rwValue");
 const currentSelectedArray = document.getElementById("arraysOptionMenu");
+const repeatTimesInput = document.getElementById("repeatTimesInput");
+
 
 middleLine = ["kal", "sad", "las", "kas", "gas", "jas", "jhk", "fall", "fash", "lash", "has;", "lhk", "glk"];
 upperLine = ["ruu", "pow", "power", "riq", "rot", "top", "poq", "yet", "tup"];
@@ -24,15 +26,14 @@ allLinesBasic = ["ins", "tin", "bin.", "fin", "sell", "aid", "net", "bet", "wet,
     "bils", "tor", "bess", "mess", "neal", "zet", "quill", "quit", "quil", ";ash", "miq", "zer", "zeroo",
     "jill."]
 
-let arrayOfRoots = middleLine;
-
+arrayOfRoots = middleLine;
 
 
 var score = 0;
 var scoreOutOf = 0;
 var wrongWords = 0;
 
-const wordRepeatTimes = 1;
+var wordRepeatTimes = 20;
 let arrayOfWords = []
 
 const colorOfWrittenWords = "rgb(148, 148, 144)";
@@ -61,7 +62,7 @@ function populateTheScreen(arrayOfRoots) {
         }
     }
     for (let i=0; i<arrayOfWords.length; i++){
-        text.innerHTML += ("<span id='c"+i+"'> "+arrayOfWords[i]+"</span> ");
+        text.innerHTML += (" <span id='c"+i+"'> "+arrayOfWords[i]+"</span> ");
     }
     input.focus();
 }
@@ -145,5 +146,13 @@ function checkButtonClick() {
         scoreStuff.style.opacity = "0";
     }
     input.focus();
+}
+function changeRepeatTimes() {
+    console.log("elgobert extra");
+    repeatTimesValue = repeatTimesInput.value;
+    if (parserepeatTimesValue > 0){
+        wordRepeatTimes = parseInt(repeatTimesValue);
+        populateTheScreen();
+    }
 }
 input.focus();
